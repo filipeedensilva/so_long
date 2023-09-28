@@ -6,13 +6,13 @@
 #    By: feden-pe <feden-pe@student.42lisboa.com>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/20 17:00:53 by feden-pe          #+#    #+#              #
-#    Updated: 2023/09/21 18:13:36 by feden-pe         ###   ########.fr        #
+#    Updated: 2023/09/28 16:57:36 by feden-pe         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror -gdwarf-4
 
 SRC = so_long.c \
       controls.c \
@@ -20,6 +20,7 @@ SRC = so_long.c \
       map_check.c \
       map_copy.c  \
       movements.c \
+      moves_bonus.c \
       exit_errors.c \
       init.c \
       image.c

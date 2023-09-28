@@ -6,7 +6,7 @@
 /*   By: feden-pe <feden-pe@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 17:36:33 by feden-pe          #+#    #+#             */
-/*   Updated: 2023/09/21 18:25:06 by feden-pe         ###   ########.fr       */
+/*   Updated: 2023/09/23 01:25:37 by feden-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,15 @@ int	vertical_outer_wall(t_data *game)
 void	check_map(t_data *game)
 {
 	if (!is_rectangule(game->map))
-		exit_msg(game, "The map isn't a rectangule!");
+		exit_msg(game, "Map isn't a rectangule!");
 	else if (!vertical_outer_wall(game) || !horizontal_outer_wall(game))
-		exit_msg(game, "The map isn't surrounded by walls!");
+		exit_msg(game, "Map isn't surrounded by walls!");
 	else
 		search_for_items(game);
 	if (game->map_var.player_count != 1)
-		exit_msg(game, "There is 0 or more than 1 player on the map!");
+		exit_msg(game, "0 or more than 1 player on the map!");
 	if (game->map_var.exit_count != 1)
-		exit_msg(game, "There is 0 or more than 1 exit on the map!");
+		exit_msg(game, "0 or more than 1 exit on the map!");
 	map_copy(game);
 	flood_fill(game, game->map_var.x, game->map_var.y, game->map_copy);
 	if (game->map_var.coins != game->map_var.coins_fill)
@@ -76,7 +76,7 @@ void	search_for_items(t_data *game)
 		while (j < game->map_var.width)
 		{
 			if (game->map[i][j] != '1' && game->map[i][j] != '0' && game->map[i][j] != 'E' && game->map[i][j] != 'P' && game->map[i][j] != 'C')
-				exit_msg(game, "The map has invalid characters!");
+				exit_msg(game, "Map has invalid characters!");
 			else if (game->map[i][j] == 'P')
 			{
 				game->map_var.x = j;

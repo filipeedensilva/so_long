@@ -6,7 +6,7 @@
 /*   By: feden-pe <feden-pe@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 18:05:41 by feden-pe          #+#    #+#             */
-/*   Updated: 2023/09/22 14:35:09 by feden-pe         ###   ########.fr       */
+/*   Updated: 2023/09/27 16:24:35 by feden-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,24 @@ void	move_right(t_data *game);
 void	move_left(t_data *game);
 void	move_down(t_data *game);
 
-void	movements(int keycode, t_data *game)
+int	movements(int keycode, t_data *game)
 {
-	if (keycode == UP || keycode == UP2)
+	int	i;
+	int	j;
+
+	i = GAME.y;
+	j = GAME.x;
+	if (keycode == XK_Up || keycode == XK_w)
 		move_up(game);
-	else if (keycode == RIGHT || keycode == RIGHT2)
+	else if (keycode == XK_Right || keycode == XK_d)
 		move_right(game);
-	else if (keycode == LEFT || keycode == LEFT2)
+	else if (keycode == XK_Left || keycode == XK_a)
 		move_left(game);
-	else if (keycode == DOWN || keycode == DOWN2)
+	else if (keycode == XK_Down || keycode == XK_s)
 		move_down(game);
+	if (i != GAME.y || j != GAME.x)
+		display_moves(game);
+	return (0);
 }
 
 void	move_up(t_data *game)

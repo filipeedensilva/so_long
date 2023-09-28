@@ -6,27 +6,20 @@
 /*   By: feden-pe <feden-pe@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 17:38:59 by feden-pe          #+#    #+#             */
-/*   Updated: 2023/09/21 18:22:05 by feden-pe         ###   ########.fr       */
+/*   Updated: 2023/09/28 16:51:10 by feden-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include"../mlx_linux/mlx.h"
-# include"../mlx_linux/mlx_int.h"
-# include"../libft/libft.h"
-# include"../get_next_line/get_next_line.h"
+# include "../mlx_linux/mlx.h"
+# include "../mlx_linux/mlx_int.h"
+# include "../libft/libft.h"
+# include "../get_next_line/get_next_line.h"
+# include <X11/X.h>
 
 # define ESC 65307
-# define UP 65362
-# define UP2 119
-# define DOWN 65364
-# define DOWN2 115
-# define LEFT 65361
-# define LEFT2 97
-# define RIGHT 65363
-# define RIGHT2 100
 # define GAME game->map_var
 
 typedef struct	s_map
@@ -69,6 +62,9 @@ void	exit_msg(t_data *game, char *msg);
 void	load_images(t_data *game);
 int	key_hook(int keycode, t_data *game);
 void	load_map(t_data *game);
-void	movements(int keycode, t_data *game);
+int	movements(int keycode, t_data *game);
+void	display_moves(t_data *game);
+int	close_win(t_data *game);
+void	free_map(char **map);
 
 #endif

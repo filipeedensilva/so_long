@@ -6,7 +6,7 @@
 /*   By: feden-pe <feden-pe@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 18:49:24 by feden-pe          #+#    #+#             */
-/*   Updated: 2023/09/20 20:04:34 by feden-pe         ###   ########.fr       */
+/*   Updated: 2023/09/28 16:31:51 by feden-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	game_init(t_data *game)
 	game->win_ptr = mlx_new_window(game->mlx_ptr, game->map_var.width * 64, game->map_var.height * 64, "so_long");
 	load_images(game);
 	load_map(game);
+	display_moves(game);
 	mlx_key_hook(game->win_ptr, key_hook, game);
-	// mlx_put_image_to_window(game->mlx_ptr, game->win_ptr, game->player, game->map_var.x * 64, game->map_var.y * 64);
 }
 
