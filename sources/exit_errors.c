@@ -6,7 +6,7 @@
 /*   By: feden-pe <feden-pe@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 14:02:19 by feden-pe          #+#    #+#             */
-/*   Updated: 2023/09/28 16:48:07 by feden-pe         ###   ########.fr       */
+/*   Updated: 2023/10/03 19:28:02 by feden-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	exit_msg(t_data *game, char *msg)
 int	close_win(t_data *game)
 {
 	free_map(game->map);
+	free_map(game->map_copy);
 	mlx_destroy_image(game->mlx_ptr, game->player);
 	mlx_destroy_image(game->mlx_ptr, game->exit);
 	mlx_destroy_image(game->mlx_ptr, game->coin);
