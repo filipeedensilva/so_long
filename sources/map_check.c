@@ -6,7 +6,7 @@
 /*   By: feden-pe <feden-pe@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/18 17:36:33 by feden-pe          #+#    #+#             */
-/*   Updated: 2023/10/18 20:30:16 by feden-pe         ###   ########.fr       */
+/*   Updated: 2023/10/22 12:02:56 by feden-pe         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,16 @@ void	check_map(void)
 		exit_msg("Map isn't surrounded by walls!");
 	else
 		search_for_items();
-	if (game()->map_var.player_count != 1)
+	if (map()->player_count != 1)
 		exit_msg("0 or more than 1 player on the map!");
-	if (game()->map_var.exit_count != 1)
+	if (map()->exit_count != 1)
 		exit_msg("0 or more than 1 exit on the map!");
 	map_copy();
-	flood_fill(game()->map_var.x, game()->map_var.y, game()->map_copy);
-	if (game()->map_var.coins != game()->map_var.coins_fill)
+	flood_fill(map()->x, map()->y, game()->map_copy);
+	if (map()->coins != map()->coins_fill)
 		exit_msg("1 or more coins are inaccessible!");
+	else if (map()->exit_count != 0)
+		exit_msg("Exit is inaccessible!");
 }	
 
 void	search_for_items(void)
